@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>InspireLearn - Sign In</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+</head>
+<body class="bg-white">
+    <div class="container mx-auto p-8">
+        <h1 class="text-4xl font-bold mb-4">Sign In</h1>
+        <form action="/users/signin" method="POST">
+            <label>Email address *</label>
+            <input type="email" name="email" class="block border border-gray-400 p-2 mb-4 w-full">
+            <label>Password *</label>
+            <input type="password" name="password" class="block border border-gray-400 p-2 mb-4 w-full">
+            <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded">Sign In</button>
+        </form>
+    </div>
+</body>
+</html>
