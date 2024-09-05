@@ -1,12 +1,155 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>InspireLearn - Assessment</title>
-    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interest Assessment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<body class="bg-white">
-    <div class="container mx-auto p-8">
-        <h1 class="text-4xl font-bold mb-4">Personalized Learning Assessment</h1>
-        <!-- Add content for the assessment page here -->
-    </div>
+<body class="bg-gray-100 text-gray-800 font-sans">
+  <div class="max-w-4xl mx-auto p-6 bg-white rounded shadow-md mt-10">
+    <h1 class="text-2xl font-bold mb-6">Interest Assessment</h1>
+
+    <form id="assessmentForm" class="space-y-6">
+
+      <!-- Part 1: Identifying Areas of Interest -->
+      <h2 class="text-xl font-semibold">Part 1: Identifying Areas of Interest</h2>
+      <p>Select the topics that interest you the most (you can select multiple):</p>
+      <div class="space-y-4">
+        <label class="block">
+          <input type="checkbox" name="interest" value="Technology" class="mr-2"> Technology (e.g., gadgets, coding, AI)
+        </label>
+        <label class="block">
+          <input type="checkbox" name="interest" value="Arts" class="mr-2"> Arts and Literature (e.g., painting, writing, music)
+        </label>
+        <label class="block">
+          <input type="checkbox" name="interest" value="Science" class="mr-2"> Science and Engineering (e.g., physics, engineering, biology)
+        </label>
+        <label class="block">
+          <input type="checkbox" name="interest" value="Business" class="mr-2"> Business and Finance (e.g., entrepreneurship, stocks, marketing)
+        </label>
+        <label class="block">
+          <input type="checkbox" name="interest" value="Social Sciences" class="mr-2"> Social Sciences (e.g., psychology, history, sociology)
+        </label>
+        <label class="block">
+          <input type="checkbox" name="interest" value="Health" class="mr-2"> Health and Wellness (e.g., fitness, mental health, nutrition)
+        </label>
+        <label class="block">
+          <input type="checkbox" name="interest" value="Other" class="mr-2"> Other (Specify below)
+        </label>
+        <label class="block">
+          <input type="text" name="otherInterest" class="w-full border border-gray-300 rounded p-2 mt-1" placeholder="Specify other interest (optional)">
+        </label>
+        <label class="block">
+          <input type="checkbox" name="interest" value="Not sure" class="mr-2"> I'm not sure
+        </label>
+      </div>
+
+      <!-- If "I'm not sure" is selected -->
+      <div id="notSureSection" class="hidden space-y-4">
+        <p>Which of these do you spend most of your free time on?</p>
+        <label class="block">
+          <input type="radio" name="freeTime" value="Tech" class="mr-2"> Using or exploring new technology
+        </label>
+        <label class="block">
+          <input type="radio" name="freeTime" value="Arts" class="mr-2"> Reading or consuming arts and literature
+        </label>
+        <label class="block">
+          <input type="radio" name="freeTime" value="Science" class="mr-2"> Watching science documentaries or engaging in experiments
+        </label>
+        <label class="block">
+          <input type="radio" name="freeTime" value="Business" class="mr-2"> Following the stock market or business news
+        </label>
+        <label class="block">
+          <input type="radio" name="freeTime" value="Social" class="mr-2"> Reading about social issues or history
+        </label>
+        <label class="block">
+          <input type="radio" name="freeTime" value="Wellness" class="mr-2"> Exercising, eating healthy, or learning about wellness
+        </label>
+        <label class="block">
+          <input type="radio" name="freeTime" value="None" class="mr-2"> None of the above
+        </label>
+
+        <!-- If "None of the above" is selected -->
+        <label class="block mt-4 hidden" id="freeTimeNone">
+          What do you usually do in your free time?
+          <textarea name="freeTimeOther" class="w-full border border-gray-300 rounded p-2 mt-1" placeholder="Describe your free-time activities"></textarea>
+        </label>
+      </div>
+
+      <!-- Part 2: Exploring Specific Areas of Interest -->
+      <h2 class="text-xl font-semibold">Part 2: Exploring Specific Areas of Interest</h2>
+
+      <!-- Technology interest section -->
+      <div id="techSection" class="hidden space-y-4">
+        <p>Within Technology, what specifically interests you?</p>
+        <label class="block">
+          <input type="radio" name="techInterest" value="Coding" class="mr-2"> Programming/Coding
+        </label>
+        <label class="block">
+          <input type="radio" name="techInterest" value="Emerging Tech" class="mr-2"> Emerging Technologies (e.g., AI, Blockchain)
+        </label>
+        <label class="block">
+          <input type="radio" name="techInterest" value="Gadgets" class="mr-2"> Gadgets/Consumer Electronics
+        </label>
+        <label class="block">
+          <input type="radio" name="techInterest" value="Cybersecurity" class="mr-2"> Cybersecurity
+        </label>
+        <label class="block">
+          <input type="radio" name="techInterest" value="Tech News" class="mr-2"> Tech News/Trends
+        </label>
+        <label class="block">
+          <input type="radio" name="techInterest" value="Not sure" class="mr-2"> I'm not sure
+        </label>
+      </div>
+
+      <!-- Similar sections for other interest areas... -->
+
+      <!-- Part 3: Determining Expertise Levels -->
+      <h2 class="text-xl font-semibold">Part 3: Determining Expertise Levels</h2>
+      <p>Would you prefer resources that are:</p>
+      <label class="block">
+        <input type="radio" name="expertise" value="Beginner" class="mr-2"> Beginner-friendly
+      </label>
+      <label class="block">
+        <input type="radio" name="expertise" value="Intermediate" class="mr-2"> Intermediate
+      </label>
+      <label class="block">
+        <input type="radio" name="expertise" value="Advanced" class="mr-2"> Advanced
+      </label>
+      <label class="block">
+        <input type="radio" name="expertise" value="Not sure" class="mr-2"> I'm not sure
+      </label>
+
+      <!-- Submit button -->
+      <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">Submit</button>
+
+    </form>
+  </div>
+
+  <script>
+    // Show additional sections based on user input
+    document.querySelectorAll('input[name="interest"]').forEach((checkbox) => {
+      checkbox.addEventListener('change', function () {
+        if (this.value === 'Not sure' && this.checked) {
+          document.getElementById('notSureSection').classList.remove('hidden');
+        } else {
+          document.getElementById('notSureSection').classList.add('hidden');
+        }
+      });
+    });
+
+    document.querySelectorAll('input[name="freeTime"]').forEach((radio) => {
+      radio.addEventListener('change', function () {
+        if (this.value === 'None') {
+          document.getElementById('freeTimeNone').classList.remove('hidden');
+        } else {
+          document.getElementById('freeTimeNone').classList.add('hidden');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
+
